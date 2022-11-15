@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8d5dad6-7db9-4d83-91cf-71ebacca1805" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/IT.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/sender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test-output.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +49,14 @@
       <option name="presentableId" value="Default" />
       <updated>1667253767967</updated>
     </task>
+    <task id="LOCAL-00001" summary="done with stop and wait">
+      <created>1668465110615</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668465110615</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,5 +85,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="done with stop and wait" />
+    <MESSAGE value="trying to do pipeline, will branch off" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to do pipeline, will branch off" />
   </component>
 </project>

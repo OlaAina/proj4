@@ -171,17 +171,19 @@ def send_reliable(cs, filedata, receiver_binding, win_size):
     # will not need to change any other parts of this file.
     #while win_left_edge < INIT_SEQNO + content_len:
     #win_left_edge = transmit_one()
+    tx = transmit_entire_window_from(win_left_edge)
+    final_ack = INIT_SEQNO + content_len
+    last_ack = 0
     while True:
         inputs = [cs]
-        readable, writeable, error = select.select(inputs, [], [], 0.2)
+        readable, writeable, error = select.select(inputs, [], [], 5)
         if readable:
             data_from_reciever, reciever_addr = cs.recvfrom(100)
             ack = Msg.deserialize(data_from_reciever)
-            expected_seq = ack.ack
-            win_left_edge = expected_seq
-            if win_left_edge in seq_to_msgindex:
-                transmit_one()
-            else:
+            if ack.ack > last_ack:
+                last_ack = ack.ack
+                transmit_entire_window_from(last_ack)
+            if last_ack == final_ack:
                 break
         if not readable:
             transmit_one()
