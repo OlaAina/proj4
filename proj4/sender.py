@@ -182,11 +182,12 @@ def send_reliable(cs, filedata, receiver_binding, win_size):
             ack = Msg.deserialize(data_from_reciever)
             if ack.ack > last_ack:
                 last_ack = ack.ack
-                transmit_entire_window_from(last_ack)
+                win_left_edge = last_ack
+                tx = transmit_entire_window_from(tx)
             if last_ack == final_ack:
                 break
         if not readable:
-            transmit_one()
+            tx = transmit_one()
 
 
 
