@@ -173,7 +173,7 @@ def send_reliable(cs, filedata, receiver_binding, win_size):
     #win_left_edge = transmit_one()
     while True:
         inputs = [cs]
-        readable, writeable, error = select.select(inputs, [], [], 0.2)
+        readable, writeable, error = select.select(inputs, [], [], RTO)
         if readable:
             data_from_reciever, reciever_addr = cs.recvfrom(100)
             ack = Msg.deserialize(data_from_reciever)
