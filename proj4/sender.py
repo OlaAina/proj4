@@ -176,19 +176,21 @@ def send_reliable(cs, filedata, receiver_binding, win_size):
     last_ack = 0
     while True:
         inputs = [cs]
-        readable, writeable, error = select.select(inputs, [], [], 5)
+        readable, writeable, error = select.select(inputs, [], [], RTO)
         if readable:
             data_from_reciever, reciever_addr = cs.recvfrom(100)
             ack = Msg.deserialize(data_from_reciever)
             if ack.ack > last_ack:
                 last_ack = ack.ack
                 win_left_edge = last_ack
+                win_right_edge = min(win_left_edge + win_size,
+                         INIT_SEQNO + content_len)
                 tx = transmit_entire_window_from(tx)
             if last_ack == final_ack:
                 break
         if not readable:
             tx = transmit_one()
-
+            print("[S] Sender transmitted one packet.")
 
 
 if __name__ == "__main__":
